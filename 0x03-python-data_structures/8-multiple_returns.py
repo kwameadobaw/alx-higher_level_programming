@@ -6,8 +6,3 @@ def multiple_returns(sentence):
         return None
     output = length, first_char
     return output
-
-
-sentence = "At school, I learnt C!"
-length, first = multiple_returns(sentence)
-print("Length: {:d} - First character: {}".format(length, first))
