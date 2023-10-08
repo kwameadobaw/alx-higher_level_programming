@@ -1,0 +1,8 @@
+#!/usr/bin/pyhton3
+def multiple_returns(sentence):
+    length = len(sentence)
+    first_char = sentence[0]
+    if length < 0:
+        return None
+    output = length, first_char
+    return output
