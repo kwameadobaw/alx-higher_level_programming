@@ -1,4 +1,4 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 def multiple_returns(sentence):
     length = len(sentence)
     first_char = sentence[0]
@@ -6,3 +6,8 @@ def multiple_returns(sentence):
         return None
     output = length, first_char
     return output
+
+
+sentence = "At school, I learnt C!"
+length, first = multiple_returns(sentence)
+print("Length: {:d} - First character: {}".format(length, first))
