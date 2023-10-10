@@ -13,10 +13,13 @@ int is_palindrome(listint_t **head)
 		return (1);
 	}
 
-	listint_t *fast = *head;
-	listint_t *slow = *head;
+	listint_t *fast;
+	listint_t *slow;
 	listint_t *prev = NULL;
 	listint_t *temp;
+
+	fast = *head;
+	slow = *head;
 
 	while (fast != NULL && fast->next != NULL)
 	{
