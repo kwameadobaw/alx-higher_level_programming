@@ -27,9 +27,9 @@ class Student:
         dict: A dictionary containing the specified attributes.
     """
         if (type(attrs) == list and all(type(ele) == str for ele in attrs)):
-            return{k: getattr(self, k) for k in attrs if hasattr(self, k)}
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
         return self.__dict__
-    
+
     def reload_from_json(self, json):
         """Reload object from JSON string."""
         for key, value in json.items():
