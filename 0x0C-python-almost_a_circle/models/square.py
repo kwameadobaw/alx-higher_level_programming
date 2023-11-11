@@ -27,7 +27,10 @@ class Square(Rectangle):
         self.height = value
 
     def __str__(self):
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.size)
+        return (
+            "[Square] ({}) {}/{} - {}"
+            .format(self.id, self.x, self.y, self.size)
+            )
 
     def update(self, *args, **kwargs):
         if args:
@@ -55,8 +58,8 @@ class Square(Rectangle):
     def to_dictionary(self):
         """Converts the square object into dictionary format"""
         return {
-                "id" : self.id,
-                "size" : self.size,
-                "x" : self.x,
-                "y" : self.y
+                "id": self.id,
+                "size": self.size,
+                "x": self.x,
+                "y": self.y
                 }

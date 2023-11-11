@@ -35,3 +35,26 @@ class Base:
             else:
                 dictionary_list = [m.to_dictionary() for m in list_objs]
                 jsf.write(Base.to_json_string(dictionary_list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """A"""
+        if json_string is None or json_string == "[]":
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        instance = cls(1, 1, 1, 1)
+        instance.update(**dictionary)
+        return instance
+
+    @classmethod
+    def load_from_file(cls):
+        filename = str(cls.__name__) + ".json"
+        try:
+            with open(filename, "r") as f:
+                list_dicts = Base.from_json_string(f.read())
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
+            return []

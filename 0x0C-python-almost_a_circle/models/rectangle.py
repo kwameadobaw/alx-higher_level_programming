@@ -90,7 +90,10 @@ class Rectangle(Base):
 
     def __str__(self):
         """Returns a string representation of the object"""
-        return f'[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}'
+        return (
+            f'[Rectangle] ({self.id}) {self.__x}/{self.__y} - '
+            f'{self.__width}/{self.__height}'
+        )
 
     def update(self, *args, **kwargs):
         """Assigns an argument to each attribute"""
@@ -122,9 +125,9 @@ class Rectangle(Base):
     def to_dictionary(self):
         """Converts the Rectangle object into dictionary format"""
         return {
-                "id" : self.id,
-                "width" : self.width,
-                "height" : self.height,
-                "x" : self.x,
-                "y" :self.y
+                "id": self.id,
+                "width": self.width,
+                "height": self.height,
+                "x": self.x,
+                "y": self.y
                 }
