@@ -67,18 +67,18 @@ class Base:
         Args:
             list_objs (list): A list of inherited Base instances.
         """
-        filename = f"{cls.__name__}.csv"
-
+        filename = cls.__name__ + ".csv"
         with open(filename, "w", newline="") as csvfile:
-            fieldnames = ["id", "width", "height", "x", "y"]
-            \if cls.__name__ == "Rectangle" else ["id", "size", "x", "y"]
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-            if list_objs:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 for obj in list_objs:
                     writer.writerow(obj.to_dictionary())
-            else:
-                csvfile.write("[]")
 
     @classmethod
     def load_from_file_csv(cls):
@@ -90,15 +90,17 @@ class Base:
             If the file does not exist - an empty list.
             Otherwise - a list of instantiated classes.
         """
-        filename = f"{cls.__name__}.csv"
-
+        filename = cls.__name__ + ".csv"
         try:
             with open(filename, "r", newline="") as csvfile:
-                fieldnames = ["id", "width", "height", "x", "y"]
-                \if cls.__name__ == "Rectangle" else ["id", "size", "x", "y"]
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
                 list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
                 list_dicts = [dict([k, int(v)] for k, v in d.items())
                               for d in list_dicts]
                 return [cls.create(**d) for d in list_dicts]
-        except FileNotFoundError:
+        except IOError:
             return []
+
