@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # Lists all states from a database
 
-import sys
+from sys import argv, exit
 import MySQLdb
 
 if __name__ == "__main__":
