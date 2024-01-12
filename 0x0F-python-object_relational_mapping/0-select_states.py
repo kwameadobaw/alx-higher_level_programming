@@ -1,5 +1,10 @@
 #!/usr/bin/python3
-# Lists all states from a database
+""" script that lists all states from the database hbtn_0e_0_usa
+
+This Module is for the project 0x0F. Python - Object-relational
+mapping proposed by Holberton school as a test for the implementation
+of MySQLdb module with hbtn_0e_0_usa database.
+"""
 
 import sys
 import MySQLdb
