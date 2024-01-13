@@ -14,7 +14,6 @@ Base = declarative_base()
 
 class State(Base):
 
-
     """Represents a state for a MySQL database.
 
     __tablename__ (str): The name of the MySQL table to store States.
